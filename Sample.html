@@ -2,9 +2,114 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>サンプルページyooo</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        header {
+            padding: 60px 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: fadeIn 2s ease;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 30px;
+            margin: 40px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: slideUp 1.5s ease;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            button:hover {
+                background: #ffeb3b;
+                transform: scale(1.1);
+            }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    Hello, World!
+
+    <header>サンプルページyooo</header>
+
+    <div class="card">
+        <p>これは GitHub Pages で公開するためのサンプルページです。</p>
+        <p>ボタンを押すとメッセージが表示されます。</p>
+
+        <button onclick="showMessage()">クリックしてね</button>
+
+        <div id="message">こんにちは！ページがちゃんと動いています 🎉</div>
+    </div>
+
+    <script>
+function showMessage() {
+    const msg = document.getElementById("message");
+    msg.style.opacity = 1;
+
+    // 軽いアニメーション
+    msg.animate(
+        [
+            { transform: "scale(0.8)", opacity: 0 },
+            { transform: "scale(1.1)", opacity: 1 },
+            { transform: "scale(1.0)", opacity: 1 }
+        ],
+        { duration: 600, easing: "ease-out" }
+    );
+}
+    </script>
+
 </body>
 </html>
